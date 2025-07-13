@@ -1,0 +1,2324 @@
+{
+  "timestamp": "2025-07-13T09:24:16.109Z",
+  "summary": {
+    "total": 32,
+    "passed": 26,
+    "failed": 6,
+    "successRate": "81.25"
+  },
+  "errors": [
+    {
+      "test": "Token Validation",
+      "error": "Token validation failed: {\"success\":false,\"message\":\"请求的资源不存在\"}"
+    },
+    {
+      "test": "Get Class Students",
+      "error": "Failed to get class students: {\"success\":false,\"message\":\"请求的资源不存在\"}"
+    },
+    {
+      "test": "Get Student Statistics",
+      "error": "Failed to get student stats: {\"success\":false,\"message\":\"请求的资源不存在\"}"
+    },
+    {
+      "test": "Get Class Statistics",
+      "error": "Failed to get class stats: {\"success\":false,\"message\":\"请求的资源不存在\"}"
+    },
+    {
+      "test": "Get Assignment Statistics",
+      "error": "Failed to get assignment stats: {\"success\":false,\"message\":\"请求的资源不存在\"}"
+    },
+    {
+      "test": "Get Performance Analytics",
+      "error": "Failed to get performance analytics: {\"success\":false,\"message\":\"请求过于频繁，请稍后再试\",\"retryAfter\":222,\"limit\":100,\"remaining\":0}"
+    }
+  ],
+  "warnings": [],
+  "testData": {
+    "staffUser": {
+      "id": "6872b99d05055ce46b287862",
+      "name": "张校长",
+      "userType": "staff",
+      "role": "principal",
+      "avatar": null,
+      "lastLogin": "2025-07-13T09:24:13.384Z",
+      "preferredLanguage": "zh-CN",
+      "staffId": "ADMIN001",
+      "email": "principal@school.edu",
+      "department": "校长办公室",
+      "permissions": {
+        "canManageStudents": true,
+        "canManageGrades": true,
+        "canManageSchedule": true,
+        "canAccessReports": true,
+        "canManageSystem": true
+      }
+    },
+    "studentUser": {
+      "id": "6872b99d05055ce46b28787c",
+      "name": "学生1",
+      "userType": "student",
+      "role": "student",
+      "avatar": null,
+      "lastLogin": "2025-07-13T09:24:13.504Z",
+      "preferredLanguage": "zh-CN",
+      "studentId": "20230001",
+      "grade": "高一",
+      "class": "6872b99d05055ce46b287877",
+      "enrollmentStatus": "enrolled"
+    },
+    "students": [
+      {
+        "contactInfo": {
+          "phone": "13800138001",
+          "email": "teststudent1752392053456@test.com"
+        },
+        "medicalInfo": {
+          "allergies": [],
+          "medications": []
+        },
+        "_id": "687361755fe995fe58291a88",
+        "studentId": "TESTSTU1752392053456",
+        "name": "测试注册学生",
+        "gender": "male",
+        "dateOfBirth": "2000-01-01T00:00:00.000Z",
+        "grade": "大一",
+        "enrollmentStatus": "enrolled",
+        "avatar": null,
+        "lastLogin": null,
+        "preferredLanguage": "zh-CN",
+        "familyMembers": [],
+        "enrollmentDate": "2025-07-13T07:34:13.054Z",
+        "statusHistory": [],
+        "createdAt": "2025-07-13T07:34:13.054Z",
+        "updatedAt": "2025-07-13T07:34:13.054Z",
+        "__v": 0
+      },
+      {
+        "contactInfo": {
+          "phone": "13800138001",
+          "email": "teststudent1752392050429@test.com"
+        },
+        "medicalInfo": {
+          "allergies": [],
+          "medications": []
+        },
+        "_id": "687361715fe995fe58291a7b",
+        "studentId": "TESTSTU1752392050429",
+        "name": "测试注册学生",
+        "gender": "male",
+        "dateOfBirth": "2000-01-01T00:00:00.000Z",
+        "grade": "大一",
+        "enrollmentStatus": "enrolled",
+        "avatar": null,
+        "lastLogin": null,
+        "preferredLanguage": "zh-CN",
+        "familyMembers": [],
+        "enrollmentDate": "2025-07-13T07:34:09.958Z",
+        "statusHistory": [],
+        "createdAt": "2025-07-13T07:34:09.958Z",
+        "updatedAt": "2025-07-13T07:34:09.958Z",
+        "__v": 0
+      },
+      {
+        "contactInfo": {
+          "phone": "13800138001",
+          "email": "student1752391990608@test.com"
+        },
+        "medicalInfo": {
+          "allergies": [],
+          "medications": []
+        },
+        "_id": "687361365fe995fe582919f4",
+        "studentId": "STU1752391990608",
+        "name": "测试学生1752391990608",
+        "gender": "male",
+        "dateOfBirth": "2000-01-01T00:00:00.000Z",
+        "grade": "大一",
+        "enrollmentStatus": "enrolled",
+        "avatar": null,
+        "lastLogin": "2025-07-13T07:33:10.764Z",
+        "preferredLanguage": "zh-CN",
+        "familyMembers": [],
+        "enrollmentDate": "2025-07-13T07:33:10.693Z",
+        "statusHistory": [],
+        "createdAt": "2025-07-13T07:33:10.694Z",
+        "updatedAt": "2025-07-13T07:33:10.765Z",
+        "__v": 0
+      },
+      {
+        "contactInfo": {
+          "phone": "",
+          "email": "test@test.com"
+        },
+        "medicalInfo": {
+          "allergies": [],
+          "medications": []
+        },
+        "_id": "687360ff5fe995fe582919f1",
+        "studentId": "TEST001",
+        "name": "测试学生",
+        "gender": "male",
+        "dateOfBirth": "2000-01-01T00:00:00.000Z",
+        "grade": "大一",
+        "enrollmentStatus": "enrolled",
+        "avatar": null,
+        "lastLogin": null,
+        "preferredLanguage": "zh-CN",
+        "familyMembers": [],
+        "enrollmentDate": "2025-07-13T07:32:15.270Z",
+        "statusHistory": [],
+        "createdAt": "2025-07-13T07:32:15.270Z",
+        "updatedAt": "2025-07-13T07:32:15.270Z",
+        "__v": 0
+      },
+      {
+        "contactInfo": {
+          "phone": "",
+          "email": "testpwd1752391799593@test.com"
+        },
+        "medicalInfo": {
+          "allergies": [],
+          "medications": []
+        },
+        "_id": "687360771b10af41dd2010f9",
+        "studentId": "TEST17523917995932",
+        "name": "测试密码不匹配",
+        "gender": "male",
+        "dateOfBirth": "2000-01-01T00:00:00.000Z",
+        "grade": "大一",
+        "enrollmentStatus": "enrolled",
+        "avatar": null,
+        "lastLogin": null,
+        "preferredLanguage": "zh-CN",
+        "familyMembers": [],
+        "enrollmentDate": "2025-07-13T07:29:59.659Z",
+        "statusHistory": [],
+        "createdAt": "2025-07-13T07:29:59.660Z",
+        "updatedAt": "2025-07-13T07:29:59.660Z",
+        "__v": 0
+      },
+      {
+        "contactInfo": {
+          "phone": "13800138001",
+          "email": "teststudent1752391799428@test.com"
+        },
+        "medicalInfo": {
+          "allergies": [],
+          "medications": []
+        },
+        "_id": "687360771b10af41dd2010f2",
+        "studentId": "TEST1752391799428",
+        "name": "测试注册学生",
+        "gender": "male",
+        "dateOfBirth": "2000-01-01T00:00:00.000Z",
+        "grade": "大一",
+        "enrollmentStatus": "enrolled",
+        "avatar": null,
+        "lastLogin": null,
+        "preferredLanguage": "zh-CN",
+        "familyMembers": [],
+        "enrollmentDate": "2025-07-13T07:29:59.509Z",
+        "statusHistory": [],
+        "createdAt": "2025-07-13T07:29:59.510Z",
+        "updatedAt": "2025-07-13T07:29:59.510Z",
+        "__v": 0
+      },
+      {
+        "contactInfo": {
+          "phone": "13800138001",
+          "email": "student1752391737374@test.com"
+        },
+        "medicalInfo": {
+          "allergies": [],
+          "medications": []
+        },
+        "_id": "687360391b10af41dd20106a",
+        "studentId": "STU1752391737374",
+        "name": "测试学生1752391737374",
+        "gender": "male",
+        "dateOfBirth": "2000-01-01T00:00:00.000Z",
+        "grade": "大一",
+        "enrollmentStatus": "enrolled",
+        "avatar": null,
+        "lastLogin": "2025-07-13T07:28:57.570Z",
+        "preferredLanguage": "zh-CN",
+        "familyMembers": [],
+        "enrollmentDate": "2025-07-13T07:28:57.486Z",
+        "statusHistory": [],
+        "createdAt": "2025-07-13T07:28:57.489Z",
+        "updatedAt": "2025-07-13T07:28:57.571Z",
+        "__v": 0
+      },
+      {
+        "contactInfo": {
+          "phone": "13873072767",
+          "email": "student60@school.edu"
+        },
+        "medicalInfo": {
+          "allergies": [],
+          "medications": []
+        },
+        "lastLogin": null,
+        "_id": "6872b99d05055ce46b2878f2",
+        "studentId": "20230060",
+        "name": "学生60",
+        "gender": "female",
+        "dateOfBirth": "2005-05-25T16:00:00.000Z",
+        "grade": "高二",
+        "class": {
+          "_id": "6872b99d05055ce46b287879",
+          "name": "高二(1)班",
+          "grade": "高二"
+        },
+        "familyMembers": [
+          {
+            "name": "家长60",
+            "relationship": "父亲",
+            "phone": "13917764370",
+            "occupation": "工程师",
+            "_id": "6872b99d05055ce46b2878f3"
+          }
+        ],
+        "enrollmentStatus": "enrolled",
+        "enrollmentDate": "2025-07-12T19:38:05.383Z",
+        "statusHistory": [],
+        "__v": 0,
+        "createdAt": "2025-07-12T19:38:05.398Z",
+        "updatedAt": "2025-07-12T20:20:41.429Z",
+        "avatar": null,
+        "preferredLanguage": "zh-CN"
+      },
+      {
+        "contactInfo": {
+          "phone": "13882467020",
+          "email": "student58@school.edu"
+        },
+        "medicalInfo": {
+          "allergies": [],
+          "medications": []
+        },
+        "lastLogin": null,
+        "_id": "6872b99d05055ce46b2878ee",
+        "studentId": "20230058",
+        "name": "学生58",
+        "gender": "female",
+        "dateOfBirth": "2005-01-01T00:00:00.000Z",
+        "grade": "高二",
+        "class": {
+          "_id": "6872b99d05055ce46b287879",
+          "name": "高二(1)班",
+          "grade": "高二"
+        },
+        "familyMembers": [
+          {
+            "name": "家长58",
+            "relationship": "父亲",
+            "phone": "13975146958",
+            "occupation": "工程师",
+            "_id": "68735875c706cb4d138c8fed"
+          }
+        ],
+        "enrollmentStatus": "enrolled",
+        "enrollmentDate": "2025-07-12T19:38:05.383Z",
+        "statusHistory": [],
+        "__v": 0,
+        "createdAt": "2025-07-12T19:38:05.398Z",
+        "updatedAt": "2025-07-13T06:55:49.093Z",
+        "avatar": null,
+        "preferredLanguage": "zh-CN"
+      },
+      {
+        "contactInfo": {
+          "phone": "13863060642",
+          "email": "student57@school.edu"
+        },
+        "medicalInfo": {
+          "allergies": [],
+          "medications": []
+        },
+        "lastLogin": null,
+        "_id": "6872b99d05055ce46b2878ec",
+        "studentId": "20230057",
+        "name": "学生57",
+        "gender": "male",
+        "dateOfBirth": "2005-12-08T16:00:00.000Z",
+        "grade": "高二",
+        "class": {
+          "_id": "6872b99d05055ce46b287879",
+          "name": "高二(1)班",
+          "grade": "高二"
+        },
+        "familyMembers": [
+          {
+            "name": "家长57",
+            "relationship": "父亲",
+            "phone": "13987750077",
+            "occupation": "工程师",
+            "_id": "6872b99d05055ce46b2878ed"
+          }
+        ],
+        "enrollmentStatus": "enrolled",
+        "enrollmentDate": "2025-07-12T19:38:05.382Z",
+        "statusHistory": [],
+        "__v": 0,
+        "createdAt": "2025-07-12T19:38:05.398Z",
+        "updatedAt": "2025-07-12T20:20:41.245Z",
+        "avatar": null,
+        "preferredLanguage": "zh-CN"
+      },
+      {
+        "contactInfo": {
+          "phone": "13824359767",
+          "email": "student56@school.edu"
+        },
+        "medicalInfo": {
+          "allergies": [],
+          "medications": []
+        },
+        "lastLogin": null,
+        "_id": "6872b99d05055ce46b2878ea",
+        "studentId": "20230056",
+        "name": "学生56",
+        "gender": "female",
+        "dateOfBirth": "2005-11-15T16:00:00.000Z",
+        "grade": "高二",
+        "class": {
+          "_id": "6872b99d05055ce46b287879",
+          "name": "高二(1)班",
+          "grade": "高二"
+        },
+        "familyMembers": [
+          {
+            "name": "家长56",
+            "relationship": "父亲",
+            "phone": "13907013090",
+            "occupation": "工程师",
+            "_id": "6872b99d05055ce46b2878eb"
+          }
+        ],
+        "enrollmentStatus": "enrolled",
+        "enrollmentDate": "2025-07-12T19:38:05.382Z",
+        "statusHistory": [],
+        "__v": 0,
+        "createdAt": "2025-07-12T19:38:05.398Z",
+        "updatedAt": "2025-07-12T20:20:41.183Z",
+        "avatar": null,
+        "preferredLanguage": "zh-CN"
+      },
+      {
+        "contactInfo": {
+          "phone": "13801235760",
+          "email": "student54@school.edu"
+        },
+        "medicalInfo": {
+          "allergies": [],
+          "medications": []
+        },
+        "lastLogin": null,
+        "_id": "6872b99d05055ce46b2878e6",
+        "studentId": "20230054",
+        "name": "学生54",
+        "gender": "female",
+        "dateOfBirth": "2005-12-24T16:00:00.000Z",
+        "grade": "高二",
+        "class": {
+          "_id": "6872b99d05055ce46b287879",
+          "name": "高二(1)班",
+          "grade": "高二"
+        },
+        "familyMembers": [
+          {
+            "name": "家长54",
+            "relationship": "父亲",
+            "phone": "13935734731",
+            "occupation": "工程师",
+            "_id": "6872b99d05055ce46b2878e7"
+          }
+        ],
+        "enrollmentStatus": "enrolled",
+        "enrollmentDate": "2025-07-12T19:38:05.382Z",
+        "statusHistory": [],
+        "__v": 0,
+        "createdAt": "2025-07-12T19:38:05.398Z",
+        "updatedAt": "2025-07-12T20:20:41.058Z",
+        "avatar": null,
+        "preferredLanguage": "zh-CN"
+      },
+      {
+        "contactInfo": {
+          "phone": "13873961900",
+          "email": "student59@school.edu"
+        },
+        "medicalInfo": {
+          "allergies": [],
+          "medications": []
+        },
+        "lastLogin": null,
+        "_id": "6872b99d05055ce46b2878f0",
+        "studentId": "20230059",
+        "name": "学生59",
+        "gender": "male",
+        "dateOfBirth": "2005-06-05T16:00:00.000Z",
+        "grade": "高二",
+        "class": {
+          "_id": "6872b99d05055ce46b287879",
+          "name": "高二(1)班",
+          "grade": "高二"
+        },
+        "familyMembers": [
+          {
+            "name": "家长59",
+            "relationship": "父亲",
+            "phone": "13958159924",
+            "occupation": "工程师",
+            "_id": "6872b99d05055ce46b2878f1"
+          }
+        ],
+        "enrollmentStatus": "enrolled",
+        "enrollmentDate": "2025-07-12T19:38:05.383Z",
+        "statusHistory": [],
+        "__v": 0,
+        "createdAt": "2025-07-12T19:38:05.398Z",
+        "updatedAt": "2025-07-12T20:20:41.368Z",
+        "avatar": null,
+        "preferredLanguage": "zh-CN"
+      },
+      {
+        "contactInfo": {
+          "phone": "13862045946",
+          "email": "student55@school.edu"
+        },
+        "medicalInfo": {
+          "allergies": [],
+          "medications": []
+        },
+        "lastLogin": null,
+        "_id": "6872b99d05055ce46b2878e8",
+        "studentId": "20230055",
+        "name": "学生55",
+        "gender": "male",
+        "dateOfBirth": "2005-02-21T16:00:00.000Z",
+        "grade": "高二",
+        "class": {
+          "_id": "6872b99d05055ce46b287879",
+          "name": "高二(1)班",
+          "grade": "高二"
+        },
+        "familyMembers": [
+          {
+            "name": "家长55",
+            "relationship": "父亲",
+            "phone": "13944702889",
+            "occupation": "工程师",
+            "_id": "6872b99d05055ce46b2878e9"
+          }
+        ],
+        "enrollmentStatus": "enrolled",
+        "enrollmentDate": "2025-07-12T19:38:05.382Z",
+        "statusHistory": [],
+        "__v": 0,
+        "createdAt": "2025-07-12T19:38:05.398Z",
+        "updatedAt": "2025-07-12T20:20:41.119Z",
+        "avatar": null,
+        "preferredLanguage": "zh-CN"
+      },
+      {
+        "contactInfo": {
+          "phone": "13891937161",
+          "email": "student53@school.edu"
+        },
+        "medicalInfo": {
+          "allergies": [],
+          "medications": []
+        },
+        "lastLogin": null,
+        "_id": "6872b99d05055ce46b2878e4",
+        "studentId": "20230053",
+        "name": "学生53",
+        "gender": "male",
+        "dateOfBirth": "2005-03-21T16:00:00.000Z",
+        "grade": "高二",
+        "class": {
+          "_id": "6872b99d05055ce46b287879",
+          "name": "高二(1)班",
+          "grade": "高二"
+        },
+        "familyMembers": [
+          {
+            "name": "家长53",
+            "relationship": "父亲",
+            "phone": "13927802424",
+            "occupation": "工程师",
+            "_id": "6872b99d05055ce46b2878e5"
+          }
+        ],
+        "enrollmentStatus": "enrolled",
+        "enrollmentDate": "2025-07-12T19:38:05.382Z",
+        "statusHistory": [],
+        "__v": 0,
+        "createdAt": "2025-07-12T19:38:05.398Z",
+        "updatedAt": "2025-07-12T20:20:40.994Z",
+        "avatar": null,
+        "preferredLanguage": "zh-CN"
+      },
+      {
+        "contactInfo": {
+          "phone": "13879735216",
+          "email": "student46@school.edu"
+        },
+        "medicalInfo": {
+          "allergies": [],
+          "medications": []
+        },
+        "lastLogin": null,
+        "_id": "6872b99d05055ce46b2878d6",
+        "studentId": "20230046",
+        "name": "学生46",
+        "gender": "female",
+        "dateOfBirth": "2005-01-13T16:00:00.000Z",
+        "grade": "高二",
+        "class": {
+          "_id": "6872b99d05055ce46b287879",
+          "name": "高二(1)班",
+          "grade": "高二"
+        },
+        "familyMembers": [
+          {
+            "name": "家长46",
+            "relationship": "父亲",
+            "phone": "13946793899",
+            "occupation": "工程师",
+            "_id": "6872b99d05055ce46b2878d7"
+          }
+        ],
+        "enrollmentStatus": "enrolled",
+        "enrollmentDate": "2025-07-12T19:38:05.381Z",
+        "statusHistory": [],
+        "__v": 0,
+        "createdAt": "2025-07-12T19:38:05.397Z",
+        "updatedAt": "2025-07-12T20:20:40.570Z",
+        "avatar": null,
+        "preferredLanguage": "zh-CN"
+      },
+      {
+        "contactInfo": {
+          "phone": "13892157643",
+          "email": "student47@school.edu"
+        },
+        "medicalInfo": {
+          "allergies": [],
+          "medications": []
+        },
+        "lastLogin": null,
+        "_id": "6872b99d05055ce46b2878d8",
+        "studentId": "20230047",
+        "name": "学生47",
+        "gender": "male",
+        "dateOfBirth": "2005-06-25T16:00:00.000Z",
+        "grade": "高二",
+        "class": {
+          "_id": "6872b99d05055ce46b287879",
+          "name": "高二(1)班",
+          "grade": "高二"
+        },
+        "familyMembers": [
+          {
+            "name": "家长47",
+            "relationship": "父亲",
+            "phone": "13928549805",
+            "occupation": "工程师",
+            "_id": "6872b99d05055ce46b2878d9"
+          }
+        ],
+        "enrollmentStatus": "enrolled",
+        "enrollmentDate": "2025-07-12T19:38:05.381Z",
+        "statusHistory": [],
+        "__v": 0,
+        "createdAt": "2025-07-12T19:38:05.397Z",
+        "updatedAt": "2025-07-12T20:20:40.628Z",
+        "avatar": null,
+        "preferredLanguage": "zh-CN"
+      },
+      {
+        "contactInfo": {
+          "phone": "13801861098",
+          "email": "student45@school.edu"
+        },
+        "medicalInfo": {
+          "allergies": [],
+          "medications": []
+        },
+        "lastLogin": null,
+        "_id": "6872b99d05055ce46b2878d4",
+        "studentId": "20230045",
+        "name": "学生45",
+        "gender": "male",
+        "dateOfBirth": "2005-08-16T16:00:00.000Z",
+        "grade": "高二",
+        "class": {
+          "_id": "6872b99d05055ce46b287879",
+          "name": "高二(1)班",
+          "grade": "高二"
+        },
+        "familyMembers": [
+          {
+            "name": "家长45",
+            "relationship": "父亲",
+            "phone": "13911719769",
+            "occupation": "工程师",
+            "_id": "6872b99d05055ce46b2878d5"
+          }
+        ],
+        "enrollmentStatus": "enrolled",
+        "enrollmentDate": "2025-07-12T19:38:05.381Z",
+        "statusHistory": [],
+        "__v": 0,
+        "createdAt": "2025-07-12T19:38:05.397Z",
+        "updatedAt": "2025-07-12T20:20:40.508Z",
+        "avatar": null,
+        "preferredLanguage": "zh-CN"
+      },
+      {
+        "contactInfo": {
+          "phone": "13878472142",
+          "email": "student43@school.edu"
+        },
+        "medicalInfo": {
+          "allergies": [],
+          "medications": []
+        },
+        "lastLogin": null,
+        "_id": "6872b99d05055ce46b2878d0",
+        "studentId": "20230043",
+        "name": "学生43",
+        "gender": "male",
+        "dateOfBirth": "2005-10-11T16:00:00.000Z",
+        "grade": "高二",
+        "class": {
+          "_id": "6872b99d05055ce46b287879",
+          "name": "高二(1)班",
+          "grade": "高二"
+        },
+        "familyMembers": [
+          {
+            "name": "家长43",
+            "relationship": "父亲",
+            "phone": "13973802150",
+            "occupation": "工程师",
+            "_id": "6872b99d05055ce46b2878d1"
+          }
+        ],
+        "enrollmentStatus": "enrolled",
+        "enrollmentDate": "2025-07-12T19:38:05.380Z",
+        "statusHistory": [],
+        "__v": 0,
+        "createdAt": "2025-07-12T19:38:05.397Z",
+        "updatedAt": "2025-07-12T20:20:40.380Z",
+        "avatar": null,
+        "preferredLanguage": "zh-CN"
+      },
+      {
+        "contactInfo": {
+          "phone": "13844468697",
+          "email": "student48@school.edu"
+        },
+        "medicalInfo": {
+          "allergies": [],
+          "medications": []
+        },
+        "lastLogin": null,
+        "_id": "6872b99d05055ce46b2878da",
+        "studentId": "20230048",
+        "name": "学生48",
+        "gender": "female",
+        "dateOfBirth": "2005-08-04T16:00:00.000Z",
+        "grade": "高二",
+        "class": {
+          "_id": "6872b99d05055ce46b287879",
+          "name": "高二(1)班",
+          "grade": "高二"
+        },
+        "familyMembers": [
+          {
+            "name": "家长48",
+            "relationship": "父亲",
+            "phone": "13968963890",
+            "occupation": "工程师",
+            "_id": "6872b99d05055ce46b2878db"
+          }
+        ],
+        "enrollmentStatus": "enrolled",
+        "enrollmentDate": "2025-07-12T19:38:05.381Z",
+        "statusHistory": [],
+        "__v": 0,
+        "createdAt": "2025-07-12T19:38:05.397Z",
+        "updatedAt": "2025-07-12T20:20:40.691Z",
+        "avatar": null,
+        "preferredLanguage": "zh-CN"
+      }
+    ],
+    "staff": [
+      {
+        "employment": {
+          "hireDate": "2025-07-13T07:34:13.122Z"
+        },
+        "permissions": {
+          "canManageStudents": false,
+          "canManageGrades": false,
+          "canManageSchedule": false,
+          "canAccessReports": false,
+          "canManageSystem": false
+        },
+        "_id": "687361755fe995fe58291a8b",
+        "staffId": "TESTSTAFF1752392053527",
+        "name": "测试注册教师",
+        "email": "testteacher1752392053527@test.com",
+        "role": "teacher",
+        "department": "计算机科学系",
+        "subjects": [],
+        "classes": [],
+        "isActive": true,
+        "avatar": null,
+        "lastLogin": null,
+        "preferredLanguage": "zh-CN",
+        "qualifications": [],
+        "roleHistory": [],
+        "createdAt": "2025-07-13T07:34:13.122Z",
+        "updatedAt": "2025-07-13T07:34:13.122Z",
+        "__v": 0
+      },
+      {
+        "employment": {
+          "hireDate": "2025-07-13T07:34:10.030Z"
+        },
+        "permissions": {
+          "canManageStudents": false,
+          "canManageGrades": false,
+          "canManageSchedule": false,
+          "canAccessReports": false,
+          "canManageSystem": false
+        },
+        "_id": "687361725fe995fe58291a7e",
+        "staffId": "TESTSTAFF1752392050544",
+        "name": "测试注册教师",
+        "email": "testteacher1752392050544@test.com",
+        "role": "teacher",
+        "department": "计算机科学系",
+        "subjects": [],
+        "classes": [],
+        "isActive": true,
+        "avatar": null,
+        "lastLogin": null,
+        "preferredLanguage": "zh-CN",
+        "qualifications": [],
+        "roleHistory": [],
+        "createdAt": "2025-07-13T07:34:10.030Z",
+        "updatedAt": "2025-07-13T07:34:10.030Z",
+        "__v": 0
+      },
+      {
+        "employment": {
+          "hireDate": "2025-07-13T07:33:10.831Z"
+        },
+        "permissions": {
+          "canManageStudents": false,
+          "canManageGrades": false,
+          "canManageSchedule": false,
+          "canAccessReports": false,
+          "canManageSystem": false
+        },
+        "_id": "687361365fe995fe582919f9",
+        "staffId": "TEA1752391990769",
+        "name": "测试教师1752391990769",
+        "email": "teacher1752391990769@test.com",
+        "role": "teacher",
+        "department": "计算机科学系",
+        "subjects": [],
+        "classes": [],
+        "isActive": true,
+        "avatar": null,
+        "lastLogin": null,
+        "preferredLanguage": "zh-CN",
+        "qualifications": [],
+        "roleHistory": [],
+        "createdAt": "2025-07-13T07:33:10.832Z",
+        "updatedAt": "2025-07-13T07:33:10.832Z",
+        "__v": 0
+      },
+      {
+        "employment": {
+          "hireDate": "2025-07-13T07:29:59.583Z"
+        },
+        "permissions": {
+          "canManageStudents": false,
+          "canManageGrades": false,
+          "canManageSchedule": false,
+          "canAccessReports": false,
+          "canManageSystem": false
+        },
+        "_id": "687360771b10af41dd2010f5",
+        "staffId": "STAFF1752391799517",
+        "name": "测试注册教师",
+        "email": "testteacher1752391799517@test.com",
+        "role": "teacher",
+        "department": "计算机科学系",
+        "subjects": [],
+        "classes": [],
+        "isActive": true,
+        "avatar": null,
+        "lastLogin": null,
+        "preferredLanguage": "zh-CN",
+        "qualifications": [],
+        "roleHistory": [],
+        "createdAt": "2025-07-13T07:29:59.583Z",
+        "updatedAt": "2025-07-13T07:29:59.583Z",
+        "__v": 0
+      },
+      {
+        "employment": {
+          "hireDate": "2025-07-13T07:28:57.653Z"
+        },
+        "permissions": {
+          "canManageStudents": false,
+          "canManageGrades": false,
+          "canManageSchedule": false,
+          "canAccessReports": false,
+          "canManageSystem": false
+        },
+        "_id": "687360391b10af41dd20106f",
+        "staffId": "TEA1752391737578",
+        "name": "测试教师1752391737578",
+        "email": "teacher1752391737578@test.com",
+        "role": "teacher",
+        "department": "计算机科学系",
+        "subjects": [],
+        "classes": [],
+        "isActive": true,
+        "avatar": null,
+        "lastLogin": null,
+        "preferredLanguage": "zh-CN",
+        "qualifications": [],
+        "roleHistory": [],
+        "createdAt": "2025-07-13T07:28:57.653Z",
+        "updatedAt": "2025-07-13T07:28:57.653Z",
+        "__v": 0
+      },
+      {
+        "employment": {
+          "hireDate": "2025-07-13T04:24:57.625Z"
+        },
+        "permissions": {
+          "canManageStudents": true,
+          "canManageGrades": true,
+          "canManageSchedule": true,
+          "canAccessReports": true,
+          "canManageSystem": true
+        },
+        "_id": "687335194aa206637787613e",
+        "staffId": "ADMIN000",
+        "name": "系统管理员",
+        "email": "admin@school.edu",
+        "role": "admin",
+        "department": "信息技术部",
+        "subjects": [],
+        "classes": [],
+        "isActive": true,
+        "avatar": "/uploads/avatars/avatar-4a81de70-ee5d-4a2e-a72a-7e9a414cb15a.png",
+        "lastLogin": "2025-07-13T06:16:49.405Z",
+        "preferredLanguage": "zh-CN",
+        "qualifications": [],
+        "roleHistory": [],
+        "createdAt": "2025-07-13T04:24:57.627Z",
+        "updatedAt": "2025-07-13T06:16:49.625Z",
+        "__v": 0
+      },
+      {
+        "employment": {
+          "hireDate": "2025-07-12T19:38:05.358Z"
+        },
+        "permissions": {
+          "canManageStudents": false,
+          "canManageGrades": true,
+          "canManageSchedule": false,
+          "canAccessReports": false,
+          "canManageSystem": false
+        },
+        "avatar": null,
+        "lastLogin": null,
+        "preferredLanguage": "zh-CN",
+        "_id": "6872b99d05055ce46b287875",
+        "staffId": "TEA003",
+        "name": "赵老师",
+        "email": "zhao@school.edu",
+        "role": "teacher",
+        "department": "英语组",
+        "subjects": [
+          "英语"
+        ],
+        "classes": [],
+        "isActive": true,
+        "qualifications": [],
+        "__v": 0,
+        "createdAt": "2025-07-12T19:38:05.359Z",
+        "updatedAt": "2025-07-12T19:38:05.359Z",
+        "roleHistory": []
+      },
+      {
+        "employment": {
+          "hireDate": "2025-07-12T19:38:05.357Z"
+        },
+        "permissions": {
+          "canManageStudents": true,
+          "canManageGrades": true,
+          "canManageSchedule": false,
+          "canAccessReports": true,
+          "canManageSystem": false
+        },
+        "avatar": null,
+        "_id": "6872b99d05055ce46b287873",
+        "staffId": "TEA001",
+        "name": "王老师",
+        "email": "wang@school.edu",
+        "role": "head_teacher",
+        "department": "语文组",
+        "subjects": [
+          "语文"
+        ],
+        "classes": [],
+        "isActive": true,
+        "qualifications": [],
+        "__v": 1,
+        "createdAt": "2025-07-12T19:38:05.358Z",
+        "updatedAt": "2025-07-13T07:34:21.084Z",
+        "lastLogin": "2025-07-13T07:34:21.084Z",
+        "preferredLanguage": "zh-CN",
+        "roleHistory": []
+      },
+      {
+        "employment": {
+          "hireDate": "2025-07-12T19:38:05.357Z"
+        },
+        "permissions": {
+          "canManageStudents": false,
+          "canManageGrades": true,
+          "canManageSchedule": false,
+          "canAccessReports": false,
+          "canManageSystem": false
+        },
+        "avatar": null,
+        "_id": "6872b99d05055ce46b287874",
+        "staffId": "TEA002",
+        "name": "刘老师",
+        "email": "liu@school.edu",
+        "role": "teacher",
+        "department": "数学组",
+        "subjects": [
+          "数学"
+        ],
+        "classes": [],
+        "isActive": true,
+        "qualifications": [],
+        "__v": 1,
+        "createdAt": "2025-07-12T19:38:05.358Z",
+        "updatedAt": "2025-07-13T05:27:36.995Z",
+        "lastLogin": "2025-07-13T05:27:36.995Z",
+        "preferredLanguage": "zh-CN",
+        "roleHistory": []
+      },
+      {
+        "employment": {
+          "hireDate": "2025-07-12T19:38:05.276Z"
+        },
+        "permissions": {
+          "canManageStudents": true,
+          "canManageGrades": true,
+          "canManageSchedule": true,
+          "canAccessReports": true,
+          "canManageSystem": false
+        },
+        "avatar": null,
+        "lastLogin": null,
+        "preferredLanguage": "zh-CN",
+        "_id": "6872b99d05055ce46b287868",
+        "staffId": "DIR001",
+        "name": "李主任",
+        "email": "director@school.edu",
+        "role": "director",
+        "department": "教务处",
+        "subjects": [],
+        "classes": [],
+        "isActive": true,
+        "qualifications": [],
+        "createdAt": "2025-07-12T19:38:05.277Z",
+        "updatedAt": "2025-07-12T19:38:05.277Z",
+        "__v": 0,
+        "roleHistory": []
+      },
+      {
+        "employment": {
+          "hireDate": "2025-07-12T19:38:05.260Z"
+        },
+        "permissions": {
+          "canManageStudents": true,
+          "canManageGrades": true,
+          "canManageSchedule": true,
+          "canAccessReports": true,
+          "canManageSystem": true
+        },
+        "avatar": null,
+        "_id": "6872b99d05055ce46b287862",
+        "staffId": "ADMIN001",
+        "name": "张校长",
+        "email": "principal@school.edu",
+        "role": "principal",
+        "department": "校长办公室",
+        "subjects": [],
+        "classes": [],
+        "isActive": true,
+        "qualifications": [],
+        "createdAt": "2025-07-12T19:38:05.267Z",
+        "updatedAt": "2025-07-13T09:24:13.385Z",
+        "__v": 1,
+        "lastLogin": "2025-07-13T09:24:13.384Z",
+        "preferredLanguage": "zh-CN",
+        "roleHistory": []
+      }
+    ],
+    "classes": [
+      {
+        "classroom": {
+          "building": "A栋",
+          "room": "101",
+          "floor": 1
+        },
+        "_id": "6872b99d05055ce46b287877",
+        "classId": "CLASS2023001",
+        "name": "高一(1)班",
+        "grade": "高一",
+        "academicYear": "2023",
+        "classType": "administrative",
+        "headTeacher": {
+          "_id": "6872b99d05055ce46b287873",
+          "staffId": "TEA001",
+          "name": "王老师"
+        },
+        "capacity": 40,
+        "currentEnrollment": 20,
+        "isActive": true,
+        "subjectTeachers": [],
+        "schedule": [],
+        "__v": 0,
+        "createdAt": "2025-07-12T19:38:05.364Z",
+        "updatedAt": "2025-07-12T19:38:05.419Z"
+      },
+      {
+        "classroom": {
+          "building": "A栋",
+          "room": "102",
+          "floor": 1
+        },
+        "_id": "6872b99d05055ce46b287878",
+        "classId": "CLASS2023002",
+        "name": "高一(2)班",
+        "grade": "高一",
+        "academicYear": "2023",
+        "classType": "administrative",
+        "headTeacher": {
+          "_id": "6872b99d05055ce46b287873",
+          "staffId": "TEA001",
+          "name": "王老师"
+        },
+        "capacity": 40,
+        "currentEnrollment": 20,
+        "isActive": true,
+        "subjectTeachers": [],
+        "schedule": [],
+        "__v": 0,
+        "createdAt": "2025-07-12T19:38:05.364Z",
+        "updatedAt": "2025-07-12T19:38:05.433Z"
+      },
+      {
+        "_id": "68734b7cd245fdeb2e57aad3",
+        "classId": "CLASS01",
+        "name": "高一三班",
+        "grade": "高一",
+        "academicYear": "2025-2026",
+        "classType": "teaching",
+        "capacity": 40,
+        "currentEnrollment": 0,
+        "isActive": true,
+        "subjectTeachers": [],
+        "schedule": [],
+        "createdAt": "2025-07-13T06:00:28.670Z",
+        "updatedAt": "2025-07-13T06:00:28.670Z",
+        "__v": 0
+      },
+      {
+        "classroom": {
+          "building": "A栋",
+          "room": "201",
+          "floor": 2
+        },
+        "_id": "6872b99d05055ce46b287879",
+        "classId": "CLASS2023003",
+        "name": "高二(1)班",
+        "grade": "高二",
+        "academicYear": "2023",
+        "classType": "administrative",
+        "capacity": 38,
+        "currentEnrollment": 20,
+        "isActive": true,
+        "subjectTeachers": [],
+        "schedule": [],
+        "__v": 0,
+        "createdAt": "2025-07-12T19:38:05.364Z",
+        "updatedAt": "2025-07-12T19:38:05.439Z"
+      }
+    ],
+    "courses": [
+      {
+        "curriculum": {
+          "chapters": []
+        },
+        "_id": "6872b99d05055ce46b2878ff",
+        "courseId": "COURSE002",
+        "name": "高中数学",
+        "subject": "数学",
+        "grade": "高一",
+        "semester": "spring",
+        "academicYear": "2023",
+        "credits": 4,
+        "description": "高中数学基础课程",
+        "objectives": [],
+        "teacher": {
+          "_id": "6872b99d05055ce46b287874",
+          "staffId": "TEA002",
+          "name": "刘老师"
+        },
+        "assistants": [],
+        "enrolledClasses": [
+          {
+            "_id": "6872b99d05055ce46b287877",
+            "name": "高一(1)班",
+            "grade": "高一"
+          },
+          {
+            "_id": "6872b99d05055ce46b287878",
+            "name": "高一(2)班",
+            "grade": "高一"
+          }
+        ],
+        "isActive": true,
+        "schedule": [],
+        "__v": 0,
+        "createdAt": "2025-07-12T19:38:05.445Z",
+        "updatedAt": "2025-07-12T19:38:05.445Z"
+      },
+      {
+        "curriculum": {
+          "chapters": []
+        },
+        "_id": "6872b99d05055ce46b287900",
+        "courseId": "COURSE003",
+        "name": "高中英语",
+        "subject": "英语",
+        "grade": "高一",
+        "semester": "spring",
+        "academicYear": "2023",
+        "credits": 4,
+        "description": "高中英语基础课程",
+        "objectives": [],
+        "teacher": {
+          "_id": "6872b99d05055ce46b287875",
+          "staffId": "TEA003",
+          "name": "赵老师"
+        },
+        "assistants": [],
+        "enrolledClasses": [
+          {
+            "_id": "6872b99d05055ce46b287877",
+            "name": "高一(1)班",
+            "grade": "高一"
+          },
+          {
+            "_id": "6872b99d05055ce46b287878",
+            "name": "高一(2)班",
+            "grade": "高一"
+          }
+        ],
+        "isActive": true,
+        "schedule": [],
+        "__v": 0,
+        "createdAt": "2025-07-12T19:38:05.445Z",
+        "updatedAt": "2025-07-12T19:38:05.445Z"
+      },
+      {
+        "curriculum": {
+          "chapters": []
+        },
+        "_id": "6872b99d05055ce46b2878fe",
+        "courseId": "COURSE001",
+        "name": "高中语文",
+        "subject": "语文",
+        "grade": "高一",
+        "semester": "spring",
+        "academicYear": "2023",
+        "credits": 4,
+        "description": "高中语文基础课程",
+        "objectives": [],
+        "teacher": {
+          "_id": "6872b99d05055ce46b287873",
+          "staffId": "TEA001",
+          "name": "王老师"
+        },
+        "assistants": [],
+        "enrolledClasses": [
+          {
+            "_id": "6872b99d05055ce46b287877",
+            "name": "高一(1)班",
+            "grade": "高一"
+          },
+          {
+            "_id": "6872b99d05055ce46b287878",
+            "name": "高一(2)班",
+            "grade": "高一"
+          }
+        ],
+        "isActive": true,
+        "schedule": [],
+        "__v": 0,
+        "createdAt": "2025-07-12T19:38:05.445Z",
+        "updatedAt": "2025-07-12T19:38:05.445Z"
+      }
+    ],
+    "assignments": [
+      {
+        "lateSubmission": {
+          "allowed": false,
+          "penalty": 0
+        },
+        "grading": {
+          "type": "manual",
+          "rubric": []
+        },
+        "settings": {
+          "showCorrectAnswers": false,
+          "randomizeQuestions": false,
+          "preventCheating": false
+        },
+        "_id": "687361375fe995fe58291a5e",
+        "title": "时间验证测试作业-1752391991069",
+        "description": "测试开始时间早于当前时间的作业创建",
+        "course": {
+          "_id": "6872b99d05055ce46b2878fe",
+          "name": "高中语文",
+          "subject": "语文"
+        },
+        "teacher": {
+          "_id": "6872b99d05055ce46b287873",
+          "name": "王老师"
+        },
+        "assignedTo": [],
+        "type": "homework",
+        "format": "online",
+        "questions": [],
+        "attachments": [],
+        "instructions": "",
+        "totalPoints": 100,
+        "attempts": 3,
+        "startDate": "2025-07-13T06:33:11.069Z",
+        "dueDate": "2025-07-20T07:33:11.069Z",
+        "isPublished": true,
+        "createdAt": "2025-07-13T07:33:11.074Z",
+        "updatedAt": "2025-07-13T07:33:11.074Z",
+        "__v": 0
+      },
+      {
+        "lateSubmission": {
+          "allowed": false,
+          "penalty": 0
+        },
+        "grading": {
+          "type": "manual",
+          "rubric": []
+        },
+        "settings": {
+          "showCorrectAnswers": false,
+          "randomizeQuestions": false,
+          "preventCheating": false
+        },
+        "_id": "687360f65fe995fe582919db",
+        "title": "时间验证测试作业-1752391926526",
+        "description": "测试开始时间早于当前时间的作业创建",
+        "course": {
+          "_id": "6872b99d05055ce46b2878fe",
+          "name": "高中语文",
+          "subject": "语文"
+        },
+        "teacher": {
+          "_id": "6872b99d05055ce46b287873",
+          "name": "王老师"
+        },
+        "assignedTo": [],
+        "type": "homework",
+        "format": "online",
+        "questions": [],
+        "attachments": [],
+        "instructions": "",
+        "totalPoints": 100,
+        "attempts": 3,
+        "startDate": "2025-07-13T06:32:06.526Z",
+        "dueDate": "2025-07-20T07:32:06.526Z",
+        "isPublished": true,
+        "createdAt": "2025-07-13T07:32:06.532Z",
+        "updatedAt": "2025-07-13T07:32:06.532Z",
+        "__v": 0
+      },
+      {
+        "lateSubmission": {
+          "allowed": false,
+          "penalty": 0
+        },
+        "grading": {
+          "type": "manual",
+          "rubric": []
+        },
+        "settings": {
+          "showCorrectAnswers": false,
+          "randomizeQuestions": false,
+          "preventCheating": false
+        },
+        "_id": "687360781b10af41dd201195",
+        "title": "教师测试作业-1752391800102",
+        "description": "这是教师创建的测试作业",
+        "course": {
+          "_id": "6872b99d05055ce46b2878fe",
+          "name": "高中语文",
+          "subject": "语文"
+        },
+        "teacher": {
+          "_id": "6872b99d05055ce46b287873",
+          "name": "王老师"
+        },
+        "assignedTo": [],
+        "type": "homework",
+        "format": "online",
+        "questions": [],
+        "attachments": [],
+        "instructions": "",
+        "totalPoints": 100,
+        "attempts": 3,
+        "startDate": "2025-07-13T07:30:00.102Z",
+        "dueDate": "2025-07-20T07:30:00.102Z",
+        "isPublished": true,
+        "createdAt": "2025-07-13T07:30:00.108Z",
+        "updatedAt": "2025-07-13T07:30:00.108Z",
+        "__v": 0
+      },
+      {
+        "lateSubmission": {
+          "allowed": false,
+          "penalty": 0
+        },
+        "grading": {
+          "type": "manual",
+          "rubric": []
+        },
+        "settings": {
+          "showCorrectAnswers": false,
+          "randomizeQuestions": false,
+          "preventCheating": false
+        },
+        "_id": "687360391b10af41dd2010dc",
+        "title": "时间验证测试作业-1752391737886",
+        "description": "测试开始时间早于当前时间的作业创建",
+        "course": {
+          "_id": "6872b99d05055ce46b2878fe",
+          "name": "高中语文",
+          "subject": "语文"
+        },
+        "teacher": {
+          "_id": "6872b99d05055ce46b287873",
+          "name": "王老师"
+        },
+        "assignedTo": [],
+        "type": "homework",
+        "format": "online",
+        "questions": [],
+        "attachments": [],
+        "instructions": "",
+        "totalPoints": 100,
+        "attempts": 3,
+        "startDate": "2025-07-13T06:28:57.886Z",
+        "dueDate": "2025-07-20T07:28:57.886Z",
+        "isPublished": true,
+        "createdAt": "2025-07-13T07:28:57.891Z",
+        "updatedAt": "2025-07-13T07:28:57.891Z",
+        "__v": 0
+      },
+      {
+        "lateSubmission": {
+          "allowed": false,
+          "penalty": 0
+        },
+        "grading": {
+          "type": "manual",
+          "rubric": []
+        },
+        "settings": {
+          "showCorrectAnswers": false,
+          "randomizeQuestions": false,
+          "preventCheating": false
+        },
+        "_id": "68735f60e99713db681ca0be",
+        "title": "时间验证测试作业-1752391520354",
+        "description": "测试开始时间早于当前时间的作业创建",
+        "course": {
+          "_id": "6872b99d05055ce46b2878fe",
+          "name": "高中语文",
+          "subject": "语文"
+        },
+        "teacher": {
+          "_id": "6872b99d05055ce46b287873",
+          "name": "王老师"
+        },
+        "assignedTo": [],
+        "type": "homework",
+        "format": "online",
+        "questions": [],
+        "attachments": [],
+        "instructions": "",
+        "totalPoints": 100,
+        "attempts": 3,
+        "startDate": "2025-07-13T06:25:20.354Z",
+        "dueDate": "2025-07-20T07:25:20.354Z",
+        "isPublished": true,
+        "createdAt": "2025-07-13T07:25:20.360Z",
+        "updatedAt": "2025-07-13T07:25:20.360Z",
+        "__v": 0
+      },
+      {
+        "lateSubmission": {
+          "allowed": true,
+          "penalty": 10
+        },
+        "grading": {
+          "type": "manual",
+          "rubric": []
+        },
+        "settings": {
+          "showCorrectAnswers": false,
+          "randomizeQuestions": false,
+          "preventCheating": false
+        },
+        "_id": "687359c5ee1ad0fc7c94a479",
+        "title": "测试作业-1752390085753",
+        "description": "这是一个测试作业",
+        "course": {
+          "_id": "6872b99d05055ce46b2878fe",
+          "name": "高中语文",
+          "subject": "语文"
+        },
+        "teacher": {
+          "_id": "6872b99d05055ce46b287873",
+          "name": "王老师"
+        },
+        "assignedTo": [],
+        "type": "homework",
+        "format": "online",
+        "questions": [],
+        "attachments": [],
+        "instructions": "",
+        "totalPoints": 100,
+        "attempts": 3,
+        "startDate": "2025-07-13T07:02:25.753Z",
+        "dueDate": "2025-07-20T07:01:25.753Z",
+        "isPublished": true,
+        "createdAt": "2025-07-13T07:01:25.760Z",
+        "updatedAt": "2025-07-13T07:01:25.760Z",
+        "__v": 0
+      },
+      {
+        "lateSubmission": {
+          "allowed": false,
+          "penalty": 10
+        },
+        "grading": {
+          "type": "manual",
+          "rubric": []
+        },
+        "settings": {
+          "showCorrectAnswers": false,
+          "randomizeQuestions": false,
+          "preventCheating": false
+        },
+        "_id": "68735083fd2ece42efbb9d9c",
+        "title": "2",
+        "description": "",
+        "course": {
+          "_id": "6872b99d05055ce46b2878ff",
+          "name": "高中数学",
+          "subject": "数学"
+        },
+        "teacher": {
+          "_id": "6872b99d05055ce46b287862",
+          "name": "张校长"
+        },
+        "assignedTo": [],
+        "type": "homework",
+        "format": "online",
+        "questions": [],
+        "attachments": [],
+        "instructions": "",
+        "totalPoints": 100,
+        "attempts": 1,
+        "startDate": "2025-07-13T22:21:00.000Z",
+        "dueDate": "2025-07-26T07:59:00.000Z",
+        "isPublished": true,
+        "createdAt": "2025-07-13T06:21:55.493Z",
+        "updatedAt": "2025-07-13T06:21:55.493Z",
+        "__v": 0
+      },
+      {
+        "lateSubmission": {
+          "allowed": true,
+          "penalty": 10
+        },
+        "grading": {
+          "type": "manual",
+          "rubric": []
+        },
+        "settings": {
+          "showCorrectAnswers": false,
+          "randomizeQuestions": false,
+          "preventCheating": false
+        },
+        "_id": "68734f805d1be78b920989e8",
+        "title": "最终验证作业 - 7/13/2025, 2:17:36 PM",
+        "description": "这是最终验证的作业",
+        "course": {
+          "_id": "6872b99d05055ce46b2878ff",
+          "name": "高中数学",
+          "subject": "数学"
+        },
+        "teacher": {
+          "_id": "6872b99d05055ce46b287862",
+          "name": "张校长"
+        },
+        "assignedTo": [],
+        "type": "homework",
+        "format": "online",
+        "questions": [],
+        "attachments": [],
+        "instructions": "",
+        "totalPoints": 100,
+        "attempts": 3,
+        "startDate": "2025-07-13T06:18:36.294Z",
+        "dueDate": "2025-07-20T06:17:36.294Z",
+        "isPublished": false,
+        "createdAt": "2025-07-13T06:17:36.314Z",
+        "updatedAt": "2025-07-13T06:17:36.314Z",
+        "__v": 0
+      },
+      {
+        "lateSubmission": {
+          "allowed": true,
+          "penalty": 10
+        },
+        "grading": {
+          "type": "manual",
+          "rubric": []
+        },
+        "settings": {
+          "showCorrectAnswers": false,
+          "randomizeQuestions": false,
+          "preventCheating": false
+        },
+        "_id": "68734db6fd1281fa5d382ccd",
+        "title": "测试作业 - 7/13/2025, 2:09:58 PM",
+        "description": "这是一个测试作业，用于验证作业创建功能",
+        "course": {
+          "_id": "6872b99d05055ce46b2878ff",
+          "name": "高中数学",
+          "subject": "数学"
+        },
+        "teacher": {
+          "_id": "6872b99d05055ce46b287862",
+          "name": "张校长"
+        },
+        "assignedTo": [],
+        "type": "homework",
+        "format": "online",
+        "questions": [],
+        "attachments": [],
+        "instructions": "请按时完成作业并提交",
+        "totalPoints": 100,
+        "attempts": 3,
+        "startDate": "2025-07-13T06:10:58.115Z",
+        "dueDate": "2025-07-20T06:09:58.115Z",
+        "isPublished": false,
+        "createdAt": "2025-07-13T06:09:58.138Z",
+        "updatedAt": "2025-07-13T06:09:58.138Z",
+        "__v": 0
+      },
+      {
+        "lateSubmission": {
+          "allowed": true,
+          "penalty": 10
+        },
+        "grading": {
+          "type": "manual",
+          "rubric": []
+        },
+        "settings": {
+          "showCorrectAnswers": false,
+          "randomizeQuestions": false,
+          "preventCheating": false
+        },
+        "_id": "68734d7e092b00ea1e237025",
+        "title": "测试作业 - 7/13/2025, 2:09:02 PM",
+        "description": "这是一个测试作业，用于验证作业创建功能",
+        "course": {
+          "_id": "6872b99d05055ce46b2878ff",
+          "name": "高中数学",
+          "subject": "数学"
+        },
+        "teacher": {
+          "_id": "6872b99d05055ce46b287862",
+          "name": "张校长"
+        },
+        "assignedTo": [],
+        "type": "homework",
+        "format": "online",
+        "questions": [],
+        "attachments": [],
+        "instructions": "请按时完成作业并提交",
+        "totalPoints": 100,
+        "attempts": 3,
+        "startDate": "2025-07-13T06:10:02.540Z",
+        "dueDate": "2025-07-20T06:09:02.540Z",
+        "isPublished": false,
+        "createdAt": "2025-07-13T06:09:02.583Z",
+        "updatedAt": "2025-07-13T06:09:02.583Z",
+        "__v": 0
+      }
+    ],
+    "resources": [
+      {
+        "fileInfo": {
+          "originalName": "Vibrant Travel.pptx",
+          "fileName": "file-e2b5bcc2-cd2e-4710-921a-e26fd898ddec.pptx",
+          "filePath": "resources/file-e2b5bcc2-cd2e-4710-921a-e26fd898ddec.pptx",
+          "fileSize": 4839187,
+          "mimeType": "application/vnd.openxmlformats-officedocument.presentationml.presentation"
+        },
+        "rating": {
+          "average": 0,
+          "count": 0
+        },
+        "_id": "687370835fe995fe58291bab",
+        "title": "Vibrant Travel",
+        "type": "presentation",
+        "subject": "general",
+        "grade": "all",
+        "description": "",
+        "uploadedBy": {
+          "_id": "6872b99d05055ce46b287862",
+          "name": "张校长"
+        },
+        "tags": [],
+        "accessLevel": "public",
+        "downloads": 5,
+        "isActive": true,
+        "featured": false,
+        "reviews": [],
+        "createdAt": "2025-07-13T08:38:27.358Z",
+        "updatedAt": "2025-07-13T09:16:01.068Z",
+        "__v": 0
+      },
+      {
+        "fileInfo": {
+          "originalName": "resource_6872916ed407e084ae6f6543.png",
+          "fileName": "file-35f1b776-f245-4897-981a-69bde4a99c4c.png",
+          "filePath": "resources/file-35f1b776-f245-4897-981a-69bde4a99c4c.png",
+          "fileSize": 43516,
+          "mimeType": "image/png"
+        },
+        "rating": {
+          "average": 0,
+          "count": 0
+        },
+        "_id": "68736d725fe995fe58291b76",
+        "title": "12",
+        "type": "document",
+        "subject": "general",
+        "grade": "all",
+        "description": "",
+        "uploadedBy": {
+          "_id": "6872b99d05055ce46b287862",
+          "name": "张校长"
+        },
+        "tags": [],
+        "accessLevel": "public",
+        "downloads": 1,
+        "isActive": true,
+        "featured": false,
+        "reviews": [],
+        "createdAt": "2025-07-13T08:25:22.306Z",
+        "updatedAt": "2025-07-13T08:51:51.424Z",
+        "__v": 0
+      },
+      {
+        "fileInfo": {
+          "originalName": "resource_68728ad15c5b1b749edd1bcd.png",
+          "fileName": "file-97bcdf4b-c8db-4777-98b0-9a36eb7a562d.png",
+          "filePath": "resources/file-97bcdf4b-c8db-4777-98b0-9a36eb7a562d.png",
+          "fileSize": 685680,
+          "mimeType": "image/png"
+        },
+        "rating": {
+          "average": 0,
+          "count": 0
+        },
+        "_id": "68735093fd2ece42efbb9dd2",
+        "title": "1",
+        "type": "document",
+        "subject": "general",
+        "grade": "all",
+        "description": "",
+        "uploadedBy": {
+          "_id": "6872b99d05055ce46b287862",
+          "name": "张校长"
+        },
+        "tags": [],
+        "accessLevel": "public",
+        "downloads": 0,
+        "isActive": true,
+        "featured": false,
+        "reviews": [],
+        "createdAt": "2025-07-13T06:22:11.526Z",
+        "updatedAt": "2025-07-13T08:39:26.138Z",
+        "__v": 0
+      },
+      {
+        "fileInfo": {
+          "originalName": "ch2exc.pdf",
+          "fileName": "file-c799c935-ce4a-4d04-814e-00269479699e.pdf",
+          "filePath": "resources/file-c799c935-ce4a-4d04-814e-00269479699e.pdf",
+          "fileSize": 1277495,
+          "mimeType": "application/pdf"
+        },
+        "rating": {
+          "average": 0,
+          "count": 0
+        },
+        "_id": "68734b8fd245fdeb2e57aadf",
+        "title": "ch2exc",
+        "type": "document",
+        "subject": "general",
+        "grade": "all",
+        "description": "",
+        "uploadedBy": {
+          "_id": "6872b99d05055ce46b287862",
+          "name": "张校长"
+        },
+        "tags": [],
+        "accessLevel": "public",
+        "downloads": 0,
+        "isActive": true,
+        "featured": false,
+        "reviews": [],
+        "createdAt": "2025-07-13T06:00:47.190Z",
+        "updatedAt": "2025-07-13T08:39:26.136Z",
+        "__v": 0
+      },
+      {
+        "fileInfo": {
+          "originalName": "Screenshot 2025-05-30 004512.png",
+          "fileName": "file-1752349194770-527444743.png",
+          "filePath": "resources/file-1752349194770-527444743.png",
+          "fileSize": 120496,
+          "mimeType": "image/png"
+        },
+        "rating": {
+          "average": 0,
+          "count": 0
+        },
+        "_id": "6872ba0a2e3e8267a063dd09",
+        "title": "Screenshot 2025-05-30 004512",
+        "type": "image",
+        "subject": "general",
+        "grade": "all",
+        "description": "",
+        "uploadedBy": {
+          "_id": "6872b99d05055ce46b287862",
+          "name": "张校长"
+        },
+        "tags": [],
+        "accessLevel": "public",
+        "downloads": 1,
+        "isActive": true,
+        "featured": false,
+        "reviews": [],
+        "createdAt": "2025-07-12T19:39:54.823Z",
+        "updatedAt": "2025-07-13T08:39:54.062Z",
+        "__v": 0
+      }
+    ],
+    "discussions": [
+      {
+        "settings": {
+          "allowStudentPosts": true,
+          "requireApproval": false,
+          "allowAnonymous": false
+        },
+        "_id": "687360781b10af41dd2011e9",
+        "title": "学生测试讨论-1752391800214",
+        "course": null,
+        "class": null,
+        "creator": {
+          "_id": "6872b99d05055ce46b28787c",
+          "name": "学生1"
+        },
+        "creatorModel": "Student",
+        "type": "general",
+        "tags": [],
+        "posts": [
+          {
+            "author": "6872b99d05055ce46b28787c",
+            "authorModel": "Student",
+            "content": "这是一个测试回复",
+            "attachments": [],
+            "isPinned": false,
+            "isEdited": false,
+            "_id": "687360781b10af41dd2011ef",
+            "likes": [],
+            "replies": [],
+            "createdAt": "2025-07-13T07:30:00.237Z"
+          },
+          {
+            "author": "6872b99d05055ce46b287862",
+            "authorModel": "Staff",
+            "content": "1",
+            "attachments": [
+              {
+                "name": "ch2exc.pdf",
+                "url": "/uploads/general/attachments-e985b918-87c6-4a9c-99b2-ff125910605e.pdf",
+                "type": "application/pdf"
+              }
+            ],
+            "isPinned": false,
+            "isEdited": false,
+            "_id": "68736d7e5fe995fe58291b97",
+            "likes": [],
+            "replies": [],
+            "createdAt": "2025-07-13T08:25:34.656Z"
+          }
+        ],
+        "isLocked": false,
+        "isActive": true,
+        "views": 0,
+        "lastActivity": "2025-07-13T08:25:34.656Z",
+        "createdAt": "2025-07-13T07:30:00.219Z",
+        "updatedAt": "2025-07-13T08:25:34.657Z",
+        "__v": 2
+      },
+      {
+        "settings": {
+          "allowStudentPosts": true,
+          "requireApproval": false,
+          "allowAnonymous": false
+        },
+        "_id": "68735b0ac95e7054352ec671",
+        "title": "学生测试讨论-1752390410535",
+        "course": null,
+        "class": null,
+        "creator": {
+          "_id": "6872b99d05055ce46b28787c",
+          "name": "学生1"
+        },
+        "creatorModel": "Student",
+        "type": "general",
+        "tags": [],
+        "posts": [
+          {
+            "author": "6872b99d05055ce46b28787c",
+            "authorModel": "Student",
+            "content": "这是一个测试回复",
+            "attachments": [],
+            "isPinned": false,
+            "isEdited": false,
+            "_id": "68735b0ac95e7054352ec677",
+            "likes": [],
+            "replies": [],
+            "createdAt": "2025-07-13T07:06:50.560Z"
+          }
+        ],
+        "isLocked": false,
+        "isActive": true,
+        "views": 0,
+        "lastActivity": "2025-07-13T07:06:50.560Z",
+        "createdAt": "2025-07-13T07:06:50.541Z",
+        "updatedAt": "2025-07-13T07:06:50.561Z",
+        "__v": 1
+      },
+      {
+        "settings": {
+          "allowStudentPosts": true,
+          "requireApproval": false,
+          "allowAnonymous": false
+        },
+        "_id": "687359c5ee1ad0fc7c94a488",
+        "title": "测试讨论-1752390085783",
+        "course": null,
+        "class": null,
+        "creator": {
+          "_id": "6872b99d05055ce46b28787c",
+          "name": "学生1"
+        },
+        "creatorModel": "Student",
+        "type": "general",
+        "tags": [],
+        "posts": [
+          {
+            "author": "6872b99d05055ce46b28787c",
+            "authorModel": "Student",
+            "content": "这是一个测试回复",
+            "attachments": [],
+            "isPinned": false,
+            "isEdited": false,
+            "_id": "687359c5ee1ad0fc7c94a48e",
+            "likes": [],
+            "replies": [],
+            "createdAt": "2025-07-13T07:01:25.800Z"
+          },
+          {
+            "author": "6872b99d05055ce46b28787c",
+            "authorModel": "Student",
+            "content": "这是带附件的回复",
+            "attachments": [
+              {
+                "name": "test-attachment.txt",
+                "url": "/uploads/general/attachments-0e727917-cb71-4d78-b46a-623919cc5583.txt",
+                "type": "text/plain"
+              }
+            ],
+            "isPinned": false,
+            "isEdited": false,
+            "_id": "687359c5ee1ad0fc7c94a494",
+            "likes": [],
+            "replies": [],
+            "createdAt": "2025-07-13T07:01:25.819Z"
+          }
+        ],
+        "isLocked": false,
+        "isActive": true,
+        "views": 0,
+        "lastActivity": "2025-07-13T07:01:25.819Z",
+        "createdAt": "2025-07-13T07:01:25.788Z",
+        "updatedAt": "2025-07-13T07:01:25.820Z",
+        "__v": 2
+      },
+      {
+        "settings": {
+          "allowStudentPosts": true,
+          "requireApproval": false,
+          "allowAnonymous": false
+        },
+        "_id": "68735459ecaee1ee8627edac",
+        "title": "最终测试讨论",
+        "course": null,
+        "class": null,
+        "creator": {
+          "_id": "6872b99d05055ce46b28787c",
+          "name": "学生1"
+        },
+        "creatorModel": "Student",
+        "type": "general",
+        "tags": [],
+        "posts": [
+          {
+            "author": "6872b99d05055ce46b28787c",
+            "authorModel": "Student",
+            "content": "这是最终测试的文件上传",
+            "attachments": [
+              {
+                "name": "final-test.txt",
+                "url": "/uploads/general/attachments-489a0864-4d7c-485a-a8db-f1a982ef3435.txt",
+                "type": "text/plain"
+              }
+            ],
+            "isPinned": false,
+            "isEdited": false,
+            "_id": "68735459ecaee1ee8627edb2",
+            "likes": [],
+            "replies": [],
+            "createdAt": "2025-07-13T06:38:17.054Z"
+          }
+        ],
+        "isLocked": false,
+        "isActive": true,
+        "views": 0,
+        "lastActivity": "2025-07-13T06:38:17.054Z",
+        "createdAt": "2025-07-13T06:38:17.025Z",
+        "updatedAt": "2025-07-13T06:38:17.055Z",
+        "__v": 1
+      },
+      {
+        "settings": {
+          "allowStudentPosts": true,
+          "requireApproval": false,
+          "allowAnonymous": false
+        },
+        "_id": "687353fecbac1ec662821679",
+        "title": "全面测试讨论",
+        "course": null,
+        "class": null,
+        "creator": {
+          "_id": "6872b99d05055ce46b28787c",
+          "name": "学生1"
+        },
+        "creatorModel": "Student",
+        "type": "general",
+        "tags": [],
+        "posts": [
+          {
+            "author": "6872b99d05055ce46b28787c",
+            "authorModel": "Student",
+            "content": "这是一个带附件的全面测试回复",
+            "attachments": [
+              {
+                "name": "comprehensive-test.txt",
+                "url": "/uploads/general/attachments-75b4fa40-a0ce-4284-916c-d5bfab4fb7bb.txt",
+                "type": "text/plain"
+              }
+            ],
+            "isPinned": false,
+            "isEdited": false,
+            "_id": "687353fecbac1ec66282167f",
+            "likes": [],
+            "replies": [],
+            "createdAt": "2025-07-13T06:36:46.660Z"
+          }
+        ],
+        "isLocked": false,
+        "isActive": true,
+        "views": 0,
+        "lastActivity": "2025-07-13T06:36:46.660Z",
+        "createdAt": "2025-07-13T06:36:46.613Z",
+        "updatedAt": "2025-07-13T06:36:46.661Z",
+        "__v": 1
+      },
+      {
+        "settings": {
+          "allowStudentPosts": true,
+          "requireApproval": false,
+          "allowAnonymous": false
+        },
+        "_id": "68734f805d1be78b920989ee",
+        "title": "最终验证讨论",
+        "course": null,
+        "class": null,
+        "creator": {
+          "_id": "6872b99d05055ce46b287862",
+          "name": "张校长"
+        },
+        "creatorModel": "Staff",
+        "type": "general",
+        "tags": [],
+        "posts": [
+          {
+            "author": "6872b99d05055ce46b287862",
+            "authorModel": "Staff",
+            "content": "这是带附件的最终验证回复",
+            "attachments": [
+              {
+                "name": "final-test.txt",
+                "url": "/uploads/general/attachments-d2d03f0d-d061-4179-8921-669a0d1b2901.txt",
+                "type": "text/plain"
+              }
+            ],
+            "isPinned": false,
+            "isEdited": false,
+            "_id": "68734f805d1be78b920989f3",
+            "likes": [],
+            "replies": [],
+            "createdAt": "2025-07-13T06:17:36.352Z"
+          },
+          {
+            "author": "6872b99d05055ce46b28787c",
+            "authorModel": "Student",
+            "content": "1",
+            "attachments": [
+              {
+                "name": "ch2exc.pdf",
+                "url": "/uploads/general/attachments-8c7f23e8-10d9-4376-a6e8-e75ff270a39c.pdf",
+                "type": "application/pdf"
+              }
+            ],
+            "isPinned": false,
+            "isEdited": false,
+            "_id": "68735024fd2ece42efbb9d5c",
+            "likes": [],
+            "replies": [],
+            "createdAt": "2025-07-13T06:20:20.269Z"
+          }
+        ],
+        "isLocked": false,
+        "isActive": true,
+        "views": 0,
+        "lastActivity": "2025-07-13T06:20:20.269Z",
+        "createdAt": "2025-07-13T06:17:36.332Z",
+        "updatedAt": "2025-07-13T06:20:20.272Z",
+        "__v": 2
+      },
+      {
+        "settings": {
+          "allowStudentPosts": true,
+          "requireApproval": false,
+          "allowAnonymous": false
+        },
+        "_id": "68734f4a27fa9208de722388",
+        "title": "文件上传测试讨论",
+        "course": null,
+        "class": null,
+        "creator": {
+          "_id": "6872b99d05055ce46b287862",
+          "name": "张校长"
+        },
+        "creatorModel": "Staff",
+        "type": "general",
+        "tags": [],
+        "posts": [
+          {
+            "author": "6872b99d05055ce46b287862",
+            "authorModel": "Staff",
+            "content": "这是一个纯文本回复，没有附件",
+            "attachments": [],
+            "isPinned": false,
+            "isEdited": false,
+            "_id": "68734f4a27fa9208de72238d",
+            "likes": [],
+            "replies": [],
+            "createdAt": "2025-07-13T06:16:42.606Z"
+          },
+          {
+            "author": "6872b99d05055ce46b287862",
+            "authorModel": "Staff",
+            "content": "这是一个带附件的回复",
+            "attachments": [
+              {
+                "name": "test-upload.txt",
+                "url": "/uploads/general/attachments-11fe7a3a-fa9e-47d0-a46c-b7f7a8f19e56.txt",
+                "type": "text/plain"
+              }
+            ],
+            "isPinned": false,
+            "isEdited": false,
+            "_id": "68734f4a27fa9208de722392",
+            "likes": [],
+            "replies": [],
+            "createdAt": "2025-07-13T06:16:42.628Z"
+          }
+        ],
+        "isLocked": false,
+        "isActive": true,
+        "views": 0,
+        "lastActivity": "2025-07-13T06:16:42.628Z",
+        "createdAt": "2025-07-13T06:16:42.571Z",
+        "updatedAt": "2025-07-13T06:16:42.629Z",
+        "__v": 2
+      },
+      {
+        "settings": {
+          "allowStudentPosts": true,
+          "requireApproval": false,
+          "allowAnonymous": false
+        },
+        "_id": "68734edf9702fdd406e63395",
+        "title": "文件上传测试讨论",
+        "course": null,
+        "class": null,
+        "creator": {
+          "_id": "6872b99d05055ce46b287862",
+          "name": "张校长"
+        },
+        "creatorModel": "Staff",
+        "type": "general",
+        "tags": [],
+        "posts": [
+          {
+            "author": "6872b99d05055ce46b287862",
+            "authorModel": "Staff",
+            "content": "这是一个纯文本回复，没有附件",
+            "attachments": [],
+            "isPinned": false,
+            "isEdited": false,
+            "_id": "68734edf9702fdd406e6339a",
+            "likes": [],
+            "replies": [],
+            "createdAt": "2025-07-13T06:14:55.970Z"
+          }
+        ],
+        "isLocked": false,
+        "isActive": true,
+        "views": 0,
+        "lastActivity": "2025-07-13T06:14:55.970Z",
+        "createdAt": "2025-07-13T06:14:55.931Z",
+        "updatedAt": "2025-07-13T06:14:55.971Z",
+        "__v": 1
+      },
+      {
+        "settings": {
+          "allowStudentPosts": true,
+          "requireApproval": false,
+          "allowAnonymous": false
+        },
+        "_id": "6872ba142e3e8267a063dd1c",
+        "title": "1",
+        "course": null,
+        "class": null,
+        "creator": {
+          "_id": "6872b99d05055ce46b287862",
+          "name": "张校长"
+        },
+        "creatorModel": "Staff",
+        "type": "general",
+        "tags": [],
+        "posts": [
+          {
+            "author": "6872b99d05055ce46b28787c",
+            "authorModel": "Student",
+            "content": "112",
+            "attachments": [],
+            "isPinned": false,
+            "isEdited": false,
+            "_id": "6872ba332e3e8267a063dd4d",
+            "likes": [],
+            "replies": [],
+            "createdAt": "2025-07-12T19:40:35.127Z"
+          },
+          {
+            "author": "6872b99d05055ce46b287862",
+            "authorModel": "Staff",
+            "content": "1",
+            "attachments": [],
+            "isPinned": false,
+            "isEdited": false,
+            "_id": "68734b98d245fdeb2e57aaf3",
+            "likes": [],
+            "replies": [],
+            "createdAt": "2025-07-13T06:00:56.137Z"
+          }
+        ],
+        "isLocked": false,
+        "isActive": true,
+        "views": 0,
+        "lastActivity": "2025-07-13T06:00:56.138Z",
+        "createdAt": "2025-07-12T19:40:05.000Z",
+        "updatedAt": "2025-07-13T06:00:56.139Z",
+        "__v": 2
+      }
+    ]
+  }
+}

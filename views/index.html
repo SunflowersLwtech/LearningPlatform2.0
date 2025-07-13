@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学习平台管理系统</title>
+    <link href="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-graduation-cap me-2"></i>学习平台管理系统</a>
+            <div class="navbar-nav ms-auto" id="navbarAuth">
+                <button class="btn btn-outline-light me-2" id="loginBtn">登录</button>
+                <button class="btn btn-light" id="registerBtn">注册</button>
+            </div>
+            <div class="navbar-nav ms-auto d-none" id="navbarUser">
+                <div class="dropdown">
+                    <button class="btn btn-outline-light dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        <i class="fas fa-user me-1"></i><span id="userName"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#" onclick="showProfile()"><i class="fas fa-user-edit me-2"></i>个人资料</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#" onclick="logout()"><i class="fas fa-sign-out-alt me-2"></i>退出登录</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid" id="mainContent">
+        <div class="row">
+            <nav class="col-md-3 col-lg-2 d-none sidebar bg-light" id="sidebar">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#" onclick="showDashboard()">
+                                <i class="fas fa-tachometer-alt me-2"></i>仪表板
+                            </a>
+                        </li>
+                        <li class="nav-item staff-only">
+                            <a class="nav-link" href="#" onclick="showStudentManagement()">
+                                <i class="fas fa-users me-2"></i>学生管理
+                            </a>
+                        </li>
+                        <li class="nav-item staff-only">
+                            <a class="nav-link" href="#" onclick="showClassManagement()">
+                                <i class="fas fa-school me-2"></i>班级管理
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="showCourseManagement()">
+                                <i class="fas fa-book me-2"></i>课程管理
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="showAssignmentManagement()">
+                                <i class="fas fa-tasks me-2"></i>作业管理
+                            </a>
+                        </li>
+                        <li class="nav-item staff-only">
+                            <a class="nav-link" href="#" onclick="showAnalytics()">
+                                <i class="fas fa-chart-bar me-2"></i>数据分析
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="showResources()">
+                                <i class="fas fa-folder-open me-2"></i>资源库
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="showDiscussions()">
+                                <i class="fas fa-comments me-2"></i>讨论区
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" id="content">
+                <div class="hero-section text-center py-5" id="welcomeSection">
+                    <div class="container">
+                        <h1 class="display-4 text-primary mb-4">
+                            <i class="fas fa-graduation-cap me-3"></i>学习平台管理系统
+                        </h1>
+                        <p class="lead mb-4">全面的教育管理解决方案，助力教学数字化转型</p>
+                        
+                        <div class="row mt-5">
+                            <div class="col-md-3 mb-3">
+                                <div class="card h-100 shadow-sm">
+                                    <div class="card-body text-center">
+                                        <i class="fas fa-user-graduate fa-3x text-primary mb-3"></i>
+                                        <h5 class="card-title">学籍管理</h5>
+                                        <p class="card-text">完整的学生信息管理与学籍异动跟踪</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="card h-100 shadow-sm">
+                                    <div class="card-body text-center">
+                                        <i class="fas fa-chalkboard-teacher fa-3x text-success mb-3"></i>
+                                        <h5 class="card-title">教学管理</h5>
+                                        <p class="card-text">备课、排课、资源共享一体化平台</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="card h-100 shadow-sm">
+                                    <div class="card-body text-center">
+                                        <i class="fas fa-laptop fa-3x text-info mb-3"></i>
+                                        <h5 class="card-title">在线学习</h5>
+                                        <p class="card-text">学生个人空间与互动学习平台</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <div class="card h-100 shadow-sm">
+                                    <div class="card-body text-center">
+                                        <i class="fas fa-chart-line fa-3x text-warning mb-3"></i>
+                                        <h5 class="card-title">数据分析</h5>
+                                        <p class="card-text">学业报告与数据驱动的教学决策</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="dashboardContent" class="d-none">
+                    <!-- Dashboard content will be loaded here -->
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">登录</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="userType" class="form-label">用户类型</label>
+                            <select class="form-select" id="userType" required>
+                                <option value="staff">教职工</option>
+                                <option value="student">学生</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="identifier" class="form-label">用户名/学号</label>
+                            <input type="text" class="form-control" id="identifier" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">密码</label>
+                            <input type="password" class="form-control" id="password" required>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">登录</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">用户注册</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="registerForm">
+                        <div class="mb-3">
+                            <label for="regUserType" class="form-label">用户类型</label>
+                            <select class="form-select" id="regUserType" required onchange="toggleRegistrationFields()">
+                                <option value="">请选择用户类型</option>
+                                <option value="staff">教职工</option>
+                                <option value="student">学生</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="regName" class="form-label">姓名</label>
+                            <input type="text" class="form-control" id="regName" required>
+                        </div>
+                        <div class="mb-3 staff-fields">
+                            <label for="regStaffId" class="form-label">工号</label>
+                            <input type="text" class="form-control" id="regStaffId">
+                        </div>
+                        <div class="mb-3 student-fields" style="display: none;">
+                            <label for="regStudentId" class="form-label">学号</label>
+                            <input type="text" class="form-control" id="regStudentId">
+                        </div>
+                        <div class="mb-3">
+                            <label for="regEmail" class="form-label">邮箱</label>
+                            <input type="email" class="form-control" id="regEmail" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="regPassword" class="form-label">密码</label>
+                            <input type="password" class="form-control" id="regPassword" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="regConfirmPassword" class="form-label">确认密码</label>
+                            <input type="password" class="form-control" id="regConfirmPassword" required>
+                        </div>
+                        <div class="mb-3 staff-fields">
+                            <label for="regRole" class="form-label">角色</label>
+                            <select class="form-select" id="regRole">
+                                <option value="teacher">教师</option>
+                                <option value="head_teacher">班主任</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 staff-fields">
+                            <label for="regDepartment" class="form-label">部门</label>
+                            <input type="text" class="form-control" id="regDepartment">
+                        </div>
+                        <div class="mb-3 student-fields" style="display: none;">
+                            <label for="regGrade" class="form-label">年级</label>
+                            <select class="form-select" id="regGrade">
+                                <option value="高一">高一</option>
+                                <option value="高二">高二</option>
+                                <option value="高三">高三</option>
+                                <option value="大一">大一</option>
+                                <option value="大二">大二</option>
+                                <option value="大三">大三</option>
+                                <option value="大四">大四</option>
+                            </select>
+                        </div>
+                        <div class="mb-3 student-fields" style="display: none;">
+                            <label for="regGender" class="form-label">性别</label>
+                            <select class="form-select" id="regGender">
+                                <option value="male">男</option>
+                                <option value="female">女</option>
+                            </select>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">注册</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script src="/js/notifications.js?v=2"></script>
+    <script src="/js/app.js?v=2"></script>
+</body>
+</html>

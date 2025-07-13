@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>前端功能测试</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+        .success { background-color: #d4edda; border-color: #c3e6cb; }
+        .error { background-color: #f8d7da; border-color: #f5c6cb; }
+        .test-result { margin: 10px 0; padding: 10px; border-radius: 3px; }
+        button { margin: 5px; padding: 10px 15px; background: #007bff; color: white; border: none; border-radius: 3px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        #results { margin-top: 20px; }
+        .loading { color: #666; font-style: italic; }
+    </style>
+</head>
+<body>
+    <h1>🧪 学习平台前端功能测试</h1>
+    
+    <div class="test-section">
+        <h2>🔐 身份验证测试</h2>
+        <button onclick="testValidLogin()">测试有效登录</button>
+        <button onclick="testInvalidLogin()">测试无效登录</button>
+        <button onclick="testRegister()">测试注册功能</button>
+    </div>
+
+    <div class="test-section">
+        <h2>🛡️ 安全测试</h2>
+        <button onclick="testXSS()">测试XSS防护</button>
+        <button onclick="testNoSQLInjection()">测试NoSQL注入防护</button>
+        <button onclick="testRateLimiting()">测试速率限制</button>
+    </div>
+
+    <div class="test-section">
+        <h2>📱 界面测试</h2>
+        <button onclick="testModalFunctions()">测试模态框功能</button>
+        <button onclick="testFormValidation()">测试表单验证</button>
+        <button onclick="testResponsive()">测试响应式设计</button>
+    </div>
+
+    <div class="test-section">
+        <h2>🔄 API连接测试</h2>
+        <button onclick="testAPIConnection()">测试API连接</button>
+        <button onclick="testErrorHandling()">测试错误处理</button>
+    </div>
+
+    <div id="results">
+        <h2>测试结果</h2>
+        <div id="test-output"></div>
+    </div>
+
+    <script>
+        const API_BASE = '/api';
+        let testResults = [];
+
+        function addResult(test, success, message) {
+            testResults.push({ test, success, message, timestamp: new Date() });
+            updateResultsDisplay();
+        }
+
+        function updateResultsDisplay() {
+            const output = document.getElementById('test-output');
+            output.innerHTML = testResults.map(result => 
+                `<div class="test-result ${result.success ? 'success' : 'error'}">
+                    ${result.success ? '✅' : '❌'} ${result.test}: ${result.message}
+                    <small>(${result.timestamp.toLocaleTimeString()})</small>
+                </div>`
+            ).join('');
+        }
+
+        function showLoading(testName) {
+            const output = document.getElementById('test-output');
+            output.innerHTML = `<div class="loading">🔄 正在测试: ${testName}...</div>` + output.innerHTML;
+        }
+
+        async function makeRequest(url, options = {}) {
+            try {
+                const response = await fetch(url, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        ...options.headers
+                    },
+                    ...options
+                });
+                const data = await response.json();
+                return { status: response.status, data, headers: response.headers };
+            } catch (error) {
+                return { status: 0, error: error.message };
+            }
+        }
+
+        async function testValidLogin() {
+            showLoading('有效登录');
+            const result = await makeRequest(`${API_BASE}/auth/login`, {
+                method: 'POST',
+                body: JSON.stringify({
+                    identifier: 'principal@school.edu',
+                    password: 'admin123',
+                    userType: 'staff'
+                })
+            });
+
+            if (result.status === 200 && result.data.success) {
+                addResult('有效登录', true, '管理员登录成功');
+                // 保存token用于后续测试
+                window.testToken = result.data.data.accessToken;
+            } else {
+                addResult('有效登录', false, result.data?.message || result.error || '登录失败');
+            }
+        }
+
+        async function testInvalidLogin() {
+            showLoading('无效登录');
+            const result = await makeRequest(`${API_BASE}/auth/login`, {
+                method: 'POST',
+                body: JSON.stringify({
+                    identifier: 'wrong@email.com',
+                    password: 'wrongpassword',
+                    userType: 'staff'
+                })
+            });
+
+            if (result.status === 401 || result.status === 400) {
+                addResult('无效登录', true, '正确拒绝了错误凭据');
+            } else {
+                addResult('无效登录', false, '应该拒绝错误凭据');
+            }
+        }
+
+        async function testRegister() {
+            showLoading('注册功能');
+            const timestamp = Date.now();
+            const result = await makeRequest(`${API_BASE}/auth/register`, {
+                method: 'POST',
+                body: JSON.stringify({
+                    userType: 'staff',
+                    name: 'Test Teacher',
+                    email: `test${timestamp}@example.com`,
+                    password: 'TestPass123',
+                    confirmPassword: 'TestPass123',
+                    staffId: `TEST${timestamp}`,
+                    role: 'teacher',
+                    department: 'Test Department'
+                })
+            });
+
+            if (result.status === 201 && result.data.success) {
+                addResult('注册功能', true, '教师注册成功');
+            } else {
+                addResult('注册功能', false, result.data?.message || result.error || '注册失败');
+            }
+        }
+
+        async function testXSS() {
+            showLoading('XSS防护');
+            const result = await makeRequest(`${API_BASE}/auth/login`, {
+                method: 'POST',
+                body: JSON.stringify({
+                    identifier: '<script>alert("xss")</script>',
+                    password: '<img src=x onerror=alert("xss")>',
+                    userType: 'staff'
+                })
+            });
+
+            // 检查响应中是否包含未转义的脚本
+            const responseText = JSON.stringify(result.data);
+            if (!responseText.includes('<script>') && !responseText.includes('onerror=')) {
+                addResult('XSS防护', true, '成功防护XSS攻击');
+            } else {
+                addResult('XSS防护', false, '可能存在XSS漏洞');
+            }
+        }
+
+        async function testNoSQLInjection() {
+            showLoading('NoSQL注入防护');
+            const result = await makeRequest(`${API_BASE}/auth/login`, {
+                method: 'POST',
+                body: JSON.stringify({
+                    identifier: { $ne: null },
+                    password: { $regex: ".*" },
+                    userType: 'staff'
+                })
+            });
+
+            if (result.status >= 400) {
+                addResult('NoSQL注入防护', true, '成功防护NoSQL注入');
+            } else {
+                addResult('NoSQL注入防护', false, '可能存在NoSQL注入漏洞');
+            }
+        }
+
+        async function testRateLimiting() {
+            showLoading('速率限制');
+            const requests = [];
+            
+            // 快速发送多个请求
+            for (let i = 0; i < 20; i++) {
+                requests.push(makeRequest(`${API_BASE}/auth/login`, {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        identifier: 'test@test.com',
+                        password: 'test123',
+                        userType: 'staff'
+                    })
+                }));
+            }
+
+            const results = await Promise.all(requests);
+            const rateLimited = results.some(r => r.status === 429);
+            
+            if (rateLimited) {
+                addResult('速率限制', true, '成功限制请求频率');
+            } else {
+                addResult('速率限制', false, '未检测到速率限制');
+            }
+        }
+
+        async function testModalFunctions() {
+            showLoading('模态框功能');
+            try {
+                // 测试showLoginModal函数是否存在
+                if (typeof window.showLoginModal === 'function') {
+                    addResult('模态框功能', true, 'showLoginModal函数可用');
+                } else {
+                    addResult('模态框功能', false, 'showLoginModal函数未定义');
+                }
+            } catch (error) {
+                addResult('模态框功能', false, error.message);
+            }
+        }
+
+        async function testFormValidation() {
+            showLoading('表单验证');
+            const result = await makeRequest(`${API_BASE}/auth/login`, {
+                method: 'POST',
+                body: JSON.stringify({
+                    identifier: '',
+                    password: '',
+                    userType: 'staff'
+                })
+            });
+
+            if (result.status === 400) {
+                addResult('表单验证', true, '正确验证了空字段');
+            } else {
+                addResult('表单验证', false, '表单验证可能有问题');
+            }
+        }
+
+        async function testResponsive() {
+            showLoading('响应式设计');
+            const viewport = window.innerWidth;
+            const isMobile = viewport < 768;
+            const isTablet = viewport >= 768 && viewport < 1024;
+            const isDesktop = viewport >= 1024;
+            
+            addResult('响应式设计', true, 
+                `当前视口: ${viewport}px (${isMobile ? '移动端' : isTablet ? '平板' : '桌面端'})`);
+        }
+
+        async function testAPIConnection() {
+            showLoading('API连接');
+            const result = await makeRequest(`${API_BASE}`);
+            
+            if (result.status === 200 && result.data.success) {
+                addResult('API连接', true, `API版本: ${result.data.version}`);
+            } else {
+                addResult('API连接', false, 'API连接失败');
+            }
+        }
+
+        async function testErrorHandling() {
+            showLoading('错误处理');
+            const result = await makeRequest(`${API_BASE}/nonexistent-endpoint`);
+            
+            if (result.status === 404) {
+                addResult('错误处理', true, '正确处理404错误');
+            } else {
+                addResult('错误处理', false, '错误处理可能有问题');
+            }
+        }
+
+        // 页面加载时自动运行基础测试
+        document.addEventListener('DOMContentLoaded', async () => {
+            addResult('页面加载', true, '前端测试页面加载成功');
+            await testAPIConnection();
+        });
+    </script>
+</body>
+</html>
