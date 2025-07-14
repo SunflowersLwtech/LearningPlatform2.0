@@ -5037,5 +5037,26 @@ async function toggleDiscussionLock(discussionId, isCurrentlyLocked) {
     }
 }
 
+// 检查Toast功能
+function checkToastSupport() {
+    console.log('检查Toast支持...');
+    console.log('Bootstrap:', typeof bootstrap !== 'undefined' ? '已加载' : '未加载');
+    console.log('Socket.IO:', typeof io !== 'undefined' ? '已加载' : '未加载');
+    
+    // 延迟测试以确保所有脚本加载完成
+    setTimeout(() => {
+        if (typeof showSimpleToast === 'function') {
+            console.log('Toast功能测试...');
+            showSimpleToast('系统已就绪，Toast功能正常！', 'success');
+        } else {
+            console.error('showSimpleToast函数未定义');
+        }
+    }, 2000);
+}
+
 // 页面加载完成后初始化
-document.addEventListener('DOMContentLoaded', initApp);
+document.addEventListener('DOMContentLoaded', () => {
+    initApp();
+    // 检查Toast功能
+    setTimeout(checkToastSupport, 1000);
+});

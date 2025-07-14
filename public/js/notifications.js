@@ -356,3 +356,53 @@ function initNotifications(user) {
 function disconnectNotifications() {
     notificationManager.disconnect();
 }
+
+// 测试Toast功能（调试用）
+function testToast(message = '这是一个测试通知', type = 'info') {
+    if (typeof bootstrap === 'undefined') {
+        console.error('Bootstrap未加载，无法显示Toast');
+        alert('Bootstrap未加载：' + message);
+        return false;
+    }
+    
+    notificationManager.showNotification({
+        message: message,
+        type: type,
+        timestamp: new Date()
+    });
+    return true;
+}
+
+// 简单的Toast显示函数（不依赖Socket.IO）
+function showSimpleToast(message, type = 'info') {
+    if (typeof bootstrap === 'undefined') {
+        console.error('Bootstrap未加载，使用alert替代');
+        alert(message);
+        return;
+    }
+
+    const toastContainer = document.getElementById('notification-container') || (() => {
+        const container = document.createElement('div');
+        container.id = 'notification-container';
+        container.className = 'toast-container position-fixed top-0 end-0 p-3';
+        container.style.zIndex = '9999';
+        document.body.appendChild(container);
+        return container;
+    })();
+
+    const toastEl = document.createElement('div');
+    toastEl.className = `toast align-items-center text-white bg-${type === 'error' ? 'danger' : type === 'success' ? 'success' : 'primary'} border-0`;
+    toastEl.setAttribute('role', 'alert');
+    toastEl.innerHTML = `
+        <div class="d-flex">
+            <div class="toast-body">${message}</div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+        </div>
+    `;
+
+    toastContainer.appendChild(toastEl);
+    const toast = new bootstrap.Toast(toastEl, { autohide: true, delay: 5000 });
+    toast.show();
+
+    toastEl.addEventListener('hidden.bs.toast', () => toastEl.remove());
+}
