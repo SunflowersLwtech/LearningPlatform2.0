@@ -180,6 +180,12 @@ function initApp() {
     if (savedToken && savedUser) {
         authToken = savedToken;
         currentUser = JSON.parse(savedUser);
+
+        // 初始化通知系统
+        if (typeof initNotifications === 'function') {
+            initNotifications(currentUser);
+        }
+
         showDashboard();
         updateNavbar();
     }
@@ -254,6 +260,12 @@ async function handleLogin(e) {
         bootstrap.Modal.getInstance($('#loginModal')).hide();
 
         showAlert('登录成功！', 'success');
+
+        // 初始化通知系统
+        if (typeof initNotifications === 'function') {
+            initNotifications(currentUser);
+        }
+
         showDashboard();
         updateNavbar();
     } catch (error) {
@@ -385,11 +397,16 @@ function updateNavbar() {
 
 // 退出登录
 function logout() {
+    // 断开通知系统连接
+    if (typeof disconnectNotifications === 'function') {
+        disconnectNotifications();
+    }
+
     localStorage.removeItem('authToken');
     localStorage.removeItem('currentUser');
     authToken = null;
     currentUser = null;
-    
+
     updateNavbar();
     safeSetContent('#content', '');
     showAlert('已退出登录', 'info');
