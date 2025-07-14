@@ -1,0 +1,235 @@
+/**
+ * Toast提示系统样式
+ * 基于Bootstrap颜色系统，支持进度条动画
+ */
+
+/* Toast容器 */
+.toast-container {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 9999;
+    pointer-events: none;
+    max-width: 400px;
+    width: 100%;
+}
+
+/* Toast项目基础样式 */
+.toast-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 300px;
+    max-width: 400px;
+    margin-bottom: 0.75rem;
+    padding: 0;
+    background: white;
+    border: 1px solid;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    pointer-events: auto;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+/* Toast显示状态 */
+.toast-item.toast-show {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Toast隐藏状态 */
+.toast-item.toast-hide {
+    opacity: 0;
+    transform: translateX(100%);
+}
+
+/* Toast内容区域 */
+.toast-content {
+    display: flex;
+    align-items: flex-start;
+    padding: 1rem;
+    gap: 0.75rem;
+}
+
+/* Toast图标 */
+.toast-icon {
+    flex-shrink: 0;
+    font-size: 1.25rem;
+    line-height: 1;
+    margin-top: 0.125rem;
+}
+
+/* Toast消息 */
+.toast-message {
+    flex: 1;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    word-wrap: break-word;
+    margin: 0;
+}
+
+/* Toast关闭按钮 */
+.toast-close {
+    flex-shrink: 0;
+    background: none;
+    border: none;
+    padding: 0.25rem;
+    margin: -0.25rem -0.25rem -0.25rem 0;
+    color: inherit;
+    opacity: 0.6;
+    cursor: pointer;
+    border-radius: 0.25rem;
+    transition: opacity 0.15s ease-in-out;
+}
+
+.toast-close:hover {
+    opacity: 1;
+}
+
+.toast-close i {
+    font-size: 0.875rem;
+}
+
+/* Toast进度条容器 */
+.toast-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background-color: rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* Toast进度条 */
+.toast-progress-bar {
+    height: 100%;
+    width: 100%;
+    transition: width 0.1s ease-out;
+}
+
+/* 进度条动画 */
+@keyframes toast-progress {
+    from {
+        width: 100%;
+    }
+    to {
+        width: 0%;
+    }
+}
+
+/* Toast类型样式 */
+.toast-success {
+    background-color: #d1e7dd !important;
+    border-color: #badbcc !important;
+}
+
+.toast-error {
+    background-color: #f8d7da !important;
+    border-color: #f5c2c7 !important;
+}
+
+.toast-warning {
+    background-color: #fff3cd !important;
+    border-color: #ffecb5 !important;
+}
+
+.toast-info {
+    background-color: #cff4fc !important;
+    border-color: #b6effb !important;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .toast-container {
+        top: 0.5rem;
+        right: 0.5rem;
+        left: 0.5rem;
+        max-width: none;
+    }
+    
+    .toast-item {
+        min-width: auto;
+        max-width: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .toast-container {
+        top: 0.25rem;
+        right: 0.25rem;
+        left: 0.25rem;
+    }
+    
+    .toast-content {
+        padding: 0.75rem;
+        gap: 0.5rem;
+    }
+    
+    .toast-icon {
+        font-size: 1rem;
+    }
+    
+    .toast-message {
+        font-size: 0.8125rem;
+    }
+}
+
+/* 深色模式支持 */
+@media (prefers-color-scheme: dark) {
+    .toast-success {
+        background-color: #0f2419;
+        border-color: #1e4d2b;
+        color: #75b798;
+    }
+    
+    .toast-error {
+        background-color: #2c0b0e;
+        border-color: #58151c;
+        color: #ea868f;
+    }
+    
+    .toast-warning {
+        background-color: #332701;
+        border-color: #664d03;
+        color: #ffda6a;
+    }
+    
+    .toast-info {
+        background-color: #032830;
+        border-color: #055160;
+        color: #6edff6;
+    }
+    
+    .toast-progress {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* 动画性能优化 */
+.toast-item {
+    will-change: transform, opacity;
+}
+
+.toast-progress-bar {
+    will-change: width;
+}
+
+/* 无障碍支持 */
+.toast-item[role="alert"] {
+    /* 确保屏幕阅读器能够读取 */
+}
+
+/* 高对比度模式支持 */
+@media (prefers-contrast: high) {
+    .toast-item {
+        border-width: 2px;
+    }
+    
+    .toast-close {
+        border: 1px solid currentColor;
+    }
+}

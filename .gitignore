@@ -1,0 +1,38 @@
+node_modules/
+.env
+uploads/
+logs/
+.DS_Store
+.vscode/
+.idea/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.nyc_output/
+coverage/
+.cache/
+dist/
+build/
+temp/
+.tmp/
+
+# Test files and temporary data
+test-*.js
+debug-*.js
+*-test.js
+test-report.json
+data/
+config/test/
+mongodb/
+query/
+
+# OS generated files
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Runtime files
+*.pid
+server.log
