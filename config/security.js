@@ -57,7 +57,7 @@ function validateInput(data, rules) {
     }
     
     // 如果字段不是必填且为空，跳过其他验证
-    if (!value && !rule.required) continue;
+    if (!value && !rule.required) {continue;}
     
     // 类型检查
     if (rule.type === 'string' && typeof value !== 'string') {
@@ -124,7 +124,7 @@ function sendSecureErrorResponse(res, error, statusCode = 500) {
 
 // HTML内容清理函数
 function sanitizeHtml(input) {
-  if (typeof input !== 'string') return '';
+  if (typeof input !== 'string') {return '';}
   
   // 移除所有HTML标签和脚本
   return input
@@ -137,7 +137,7 @@ function sanitizeHtml(input) {
 
 // 参数清理函数 - 防止NoSQL注入
 function sanitizeParams(params) {
-  if (!params || typeof params !== 'object') return params;
+  if (!params || typeof params !== 'object') {return params;}
   
   const sanitized = {};
   

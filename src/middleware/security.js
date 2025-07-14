@@ -64,14 +64,14 @@ exports.limitInputSize = (maxSize = 1000) => {
           }
         } else if (typeof obj[key] === 'object' && obj[key] !== null) {
           const result = checkSize(obj[key], currentPath);
-          if (result) return result;
+          if (result) {return result;}
         }
       }
     };
 
     if (req.body) {
       const result = checkSize(req.body);
-      if (result) return result;
+      if (result) {return result;}
     }
 
     next();
